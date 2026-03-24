@@ -65,7 +65,14 @@ export default function CreateGame() {
   const [showPublishModal, setShowPublishModal] = useState(false)
   const [showGameCompleteModal, setShowGameCompleteModal] = useState(false)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [qrOpen, setQrOpen] = useState(false)
   const router = useRouter()
+
+  const handleShare = () => {
+    if (typeof window !== "undefined") {
+      navigator.clipboard.writeText(window.location.href)
+    }
+  }
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isPublishing, setIsPublishing] = useState(false);
   const [huntId, setHuntId] = useState<number>(1); // Default to 1 for preview
